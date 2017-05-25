@@ -1,31 +1,25 @@
-# facedb
-blockchain database with face recognition hashes, times, and GPS locations
+# blocktable
+Overview
+A blocktable is a tiny/thin simple database table replicated in it's own individual blockchain.  The blocktable in itself is not an application, but an API to store, retrieve, and search data.  Typically they will have 2-5 low byte columns.  
 
-Purpose
+Background
+Like value tokens, blocktables will be coded by multiple teams, public and corporate, have multiple languages and APIs.  Their usefulness will be their simplicity.  
 
-In Scope
-  Public domain
-  decentralized
-  open source
-  three tables only
-    facehashversion
-      hashid
-      hashcode
-      hashversion
-    face
-      faceid
-      face hash
-      hash name
+Scenarios
+External applications will interact with one or more of these blocktables and join to internal non-block tables as well.  Applications will be written in a flexible manner so that if a better block table becomes more useful later, the application can switch if they want.  A user application might use eight blocktables run by different external orgs and 20 internal tables.  If an application has a need for a public blocktable, but one doesn't exist yet, they can launch a new external or internal blocktable and use it in their application. They can choose any business or security model they wish and promote it as they see fit.  Some teams may specialize in creating and maintaining blocktables only, while other teams may specialize in using blocktables in their applications.
 
-Not In Scope
+A company like Microsoft could reuse their blocktable code base and deploy 20 of them with similar APIs, then use many of them in a single application.  Each blocktable would be it's own entity with no dependencies though.  Decentralized, and shared with competitors.
 
-
-Design
-  tables
-  
+Tech notes
 It may make the most sense to have one table in each thin blockchain.  If users want to add columns, they can copy a blockchain, add their features, and be responsible for launching, promoting and maintaining it themselves.  Universal and competing APIs can interact with multiple "table" blockchains and choose the best of available tables for their purpose. 
 
 Table blockchain selection factor will be API compatibility, availibility, nodes, ownership, cost, columns, data quality, userbase, FK interoperability.  worldwide datasets will have duplication and compete between public domain, corporate owned, and government owned
+
+blocktable application example, security face recognition logging (or dashcam license plate logging):
+
+Purpose
+  Database with face recognition hashes, times, and GPS locations
+
     hashversion
       desc:
         has details of face recognition hash algorithum used.
@@ -35,7 +29,6 @@ Table blockchain selection factor will be API compatibility, availibility, nodes
         hashcodeversionid, smallint, PK
         hashcode, string FK to external industry standard?
         hashversion, string.  Version of hashcode
-        
       
     hash
       desc:
