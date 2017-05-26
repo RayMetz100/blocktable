@@ -1,0 +1,23 @@
+hashid
+Table Structure
+Definition
+
+Columns
+
+id
+hash
+
+
+
+Uses
+Face recognition logging.
+Swcurity cams hooked to IoT, 
+This instance of hash blocktable is named facehash
+join facehash to different log blocktable named facelog on hashid
+Facelog has gps and timestamp columns, and fk to facehash
+
+Qurstions
+What if hash algo or version changes? 
+Do we want a whole new table for the new version 
+or can new and old hashes be mixed in the same table?
+V1.0 assumes all hash algos and versions are same for whole table
