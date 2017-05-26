@@ -1,0 +1,47 @@
+Uses
+Face recognition logging.
+Swcurity cams hooked to IoT, 
+This instance of hash blocktable is named facehash
+join facehash to different log blocktable named facelog on hashid
+Facelog has gps and timestamp columns, and fk to facehash
+
+End user scenario.
+A pawnshop gets robbed,
+alrrady has security system cameras
+Wants to find crooks whobrobbed him
+Police know crooks too, but they are interstate freeway bandits
+Police cant find then and get multiple cases a year.
+
+Pawnshop buys and installs public blockchain face logger 
+A box hooked to a face camera by their door
+As every customer leaves the store, 
+Local pc software takes the camera image, calulculates a small output
+And logs it with time and date and store gps into public blockchain tables
+10 or 100 stores around the world do the same
+
+If a robbery does happen again, or whenever any store wants to search the blockchain
+They can take anybface from their camera and search facehash
+If theyvget some face hits there, they can search the logs of other stores around the world
+Hash, time, and gps only though.
+To confirm a face outside their store, 
+theyd have to find aContact info for another store from gps
+Thrn call and check if camera logs near thatbtime are available
+
+Other uses are security companies, banks, and police
+Thry already have systems and budgets
+This is for the public domain to use like a gas station owner or pawnshop or small jewelry store.
+
+Similar concepts are car license plate scanning from dash cams and mobile phones
+
+APIs
+
+SearchHash
+finds a hash match and returns hash id
+
+Log event
+Checks for existing hash record With SearchHash for dedup
+logs an existing or new hashid into log table
+
+Search Log
+Takes 1-x hashids and returns range of log hits
+
